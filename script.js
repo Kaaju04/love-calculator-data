@@ -1,4 +1,4 @@
-const accessToken = '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';
+const accessToken = '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';
 const owner = 'Kaaju04'; // Your GitHub username
 const repo = 'love-calculator-data'; // Replace with your repository name
 const filePath = 'data.txt'; // Path to the text file in your repository
