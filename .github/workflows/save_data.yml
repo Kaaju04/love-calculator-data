@@ -1,0 +1,27 @@
+name: Save User Data
+
+on:
+  push:
+    branches:
+      - main  # Adjust this if your default branch is different
+
+jobs:
+  save-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Append data to data.txt
+        run: |
+          echo "${{ github.event_name }} by ${{ github.actor }} at $(date)" >> data.txt
+          echo "Name: ${{ github.event.inputs.name }}" >> data.txt
+          echo "Compatibility: ${{ github.event.inputs.compatibility }}" >> data.txt
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'Kaaju04'
+          git config --global user.email 'robloxgameraaditya@gmail.com'
+          git commit -am "Add user data"
+          git push
